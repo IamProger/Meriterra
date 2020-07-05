@@ -1,0 +1,7 @@
+FROM python:2.7
+
+ADD ./calculator.py /
+ADD ./config.json /
+
+
+CMD ["python2.7", "calculator.py"]

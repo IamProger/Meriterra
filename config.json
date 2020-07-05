@@ -1,0 +1,15 @@
+{
+	"client": {"pause_between_requests": [1,15]},
+	"dispatcher": {
+		"port_for_client_socket": 4001,
+		"port_for_calculator_socket": 4011
+	},
+	"calculator":{
+		"period_of_sending_state": [1,15],
+		"port_for_dispatcher_socket": 4002,
+		"period_of_work_time": [1,15],
+		"seconds_pause_of_working": 15,
+		"probability_to_stop_working": 15
+	}
+}
+

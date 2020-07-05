@@ -1,0 +1,6 @@
+FROM python:2.7
+
+ADD ./dispatcher.py /
+ADD ./config.json /
+
+CMD ["python2.7", "dispatcher.py"]

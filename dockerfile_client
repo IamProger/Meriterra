@@ -1,0 +1,7 @@
+FROM python:2.7
+
+ADD ./client.py /
+ADD ./config.json /
+
+
+CMD ["python2.7", "client.py"]

@@ -1,0 +1,68 @@
+version: '3.3'
+
+services:
+  client2:
+    build:
+      context: .
+      dockerfile: dockerfile_client
+    volumes: 
+      - ./client2_dir:/client_dir
+    container_name: client2
+    depends_on: 
+      - calculator3
+    networks:
+      - back
+
+  client1:
+    build:
+      context: .
+      dockerfile: dockerfile_client
+    volumes: 
+      - ./client1_dir:/client_dir
+    container_name: client1
+    depends_on: 
+      - calculator3
+    networks:
+      - back
+
+  dispatcher:
+    build:
+      context: .
+      dockerfile: dockerfile_dispatcher
+    container_name: dispatcher
+    networks:
+      - back
+
+  calculator1:
+    build:
+      context: .
+      dockerfile: dockerfile_calculator
+    container_name: calculator1
+    depends_on: 
+      - dispatcher
+    networks:
+      - back
+
+  calculator2:
+    build:
+      context: .
+      dockerfile: dockerfile_calculator
+    container_name: calculator2
+    depends_on: 
+      - dispatcher
+    networks:
+      - back
+
+  calculator3:
+    build:
+      context: .
+      dockerfile: dockerfile_calculator
+    container_name: calculator3
+    depends_on: 
+      - dispatcher
+    networks:
+      - back
+
+networks:
+  back:
+    driver: bridge
